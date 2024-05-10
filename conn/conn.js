@@ -5,7 +5,7 @@ const conn = async (req, res) => {
   try {
     await mongoose
       .connect(
-MONGODB_URI
+"mongodb+srv://mettunanditha9959:nanditha9959@cluster0.beozapf.mongodb.net/"
       )
       .then(() => {
         console.log("Connected");
