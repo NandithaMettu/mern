@@ -1,16 +1,16 @@
-const mongoose = require("mongoose");
 
-const conn = async (req, res) => {
+require('dotenv').config();
+const mongoose = require("mongoose");
+const conn = async () => {
   try {
-    await mongoose
-      .connect(
-        "mongodb+srv://mettunanditha9959:nanditha9959@cluster0.beozapf.mongodb.net/"
-      )
-      .then(() => {
-        console.log("Connected");
-      });
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log("MongoDB connected successfully");
   } catch (error) {
-    console.log(error);
+    console.error("MongoDB connection error:", error);
   }
 };
+
 conn();
