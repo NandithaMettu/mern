@@ -1,12 +1,17 @@
 
 const mongoose = require("mongoose");
-const conn = async () => {
+
+const conn = async (req, res) => {
   try {
-    await mongoose.connect(MONGODB_URI);
-    console.log("MongoDB connected successfully");
+    await mongoose
+      .connect(
+        "mongodb+srv://mettunanditha9959:nanditha9959@cluster0.beozapf.mongodb.net/"
+      )
+      .then(() => {
+        console.log("Connected");
+      });
   } catch (error) {
-    console.error("MongoDB connection error:", error);
+    console.log(error);
   }
 };
-
 conn();
